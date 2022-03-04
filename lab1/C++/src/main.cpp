@@ -30,10 +30,10 @@ void mergeSort(int arr[], int aux[], int left, int right) {
 
 int main() {
     int n;
+    cin >> n;
     int * arr = new int[n];
     int * aux = new int[n];
 
-    cin >> n;
     for (int i = 0; i != n; i++) {
         cin >> arr[i];
     }
@@ -43,7 +43,5 @@ int main() {
         cout << arr[i] << " ";
     }
     cout << endl;
-    delete [] arr;
-    delete [] aux;
     return 0;
 }
