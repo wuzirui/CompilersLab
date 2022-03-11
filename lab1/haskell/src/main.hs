@@ -19,7 +19,7 @@ readIntArray :: String -> [Int]
 readIntArray xs = map func (lines xs)
     where func str = read str :: Int
 
-{-
+
 main = do
     input <- (readFile "in.in")
     putStrLn "ReadOK"
@@ -27,5 +27,3 @@ main = do
         do
             putStrLn ("Merge OK" ++ show(length ret))
             writeFile "out.out" (show (length ret))
-
- -}
