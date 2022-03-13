@@ -1,0 +1,20 @@
+digraph unnamed {
+
+	Node0x55c2a5061010 [shape=record,label="{CompoundStmt}"];
+	Node0x55c2a5061010 -> Node0x55c2a5061000;
+	Node0x55c2a5061000 [shape=record,label="{ReturnStmt}"];
+	Node0x55c2a5061000 -> Node0x55c2a5060fa0;
+	Node0x55c2a5060fa0 [shape=record,label="{CallExpr}"];
+	Node0x55c2a5060fa0 -> Node0x55c2a5060f88;
+	Node0x55c2a5060fa0 -> Node0x55c2a5060fd0;
+	Node0x55c2a5060fa0 -> Node0x55c2a5060fe8;
+	Node0x55c2a5060f88 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2a5060f88 -> Node0x55c2a5060f38;
+	Node0x55c2a5060f38 [shape=record,label="{DeclRefExpr}"];
+	Node0x55c2a5060fd0 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2a5060fd0 -> Node0x55c2a5060ef8;
+	Node0x55c2a5060ef8 [shape=record,label="{DeclRefExpr}"];
+	Node0x55c2a5060fe8 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2a5060fe8 -> Node0x55c2a5060f18;
+	Node0x55c2a5060f18 [shape=record,label="{DeclRefExpr}"];
+}

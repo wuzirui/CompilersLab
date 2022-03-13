@@ -1,0 +1,16 @@
+digraph unnamed {
+
+	Node0x55c2365d1bc8 [shape=record,label="{CompoundStmt}"];
+	Node0x55c2365d1bc8 -> Node0x55c2365d1bb8;
+	Node0x55c2365d1bb8 [shape=record,label="{ReturnStmt}"];
+	Node0x55c2365d1bb8 -> Node0x55c2365d1b98;
+	Node0x55c2365d1b98 [shape=record,label="{BinaryOperator}"];
+	Node0x55c2365d1b98 -> Node0x55c2365d1b68;
+	Node0x55c2365d1b98 -> Node0x55c2365d1b80;
+	Node0x55c2365d1b68 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2365d1b68 -> Node0x55c2365d1b48;
+	Node0x55c2365d1b48 [shape=record,label="{DeclRefExpr}"];
+	Node0x55c2365d1b80 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2365d1b80 -> Node0x55c235d21b00;
+	Node0x55c235d21b00 [shape=record,label="{IntegerLiteral}"];
+}

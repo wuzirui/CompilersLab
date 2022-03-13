@@ -1,0 +1,8 @@
+digraph unnamed {
+
+	Node0x55c236557e00 [shape=record,label="{CompoundStmt}"];
+	Node0x55c236557e00 -> Node0x55c236557df0;
+	Node0x55c236557df0 [shape=record,label="{ReturnStmt}"];
+	Node0x55c236557df0 -> Node0x55c2361599c0;
+	Node0x55c2361599c0 [shape=record,label="{CXXBoolLiteralExpr}"];
+}

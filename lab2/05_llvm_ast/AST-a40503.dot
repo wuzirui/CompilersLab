@@ -1,0 +1,26 @@
+digraph unnamed {
+
+	Node0x555c0efa76f8 [shape=record,label="{CompoundStmt}"];
+	Node0x555c0efa76f8 -> Node0x555c0efa76e8;
+	Node0x555c0efa76e8 [shape=record,label="{ReturnStmt}"];
+	Node0x555c0efa76e8 -> Node0x555c0efa7678;
+	Node0x555c0efa7678 [shape=record,label="{CallExpr}"];
+	Node0x555c0efa7678 -> Node0x555c0efa7660;
+	Node0x555c0efa7678 -> Node0x555c0efa76b0;
+	Node0x555c0efa7678 -> Node0x555c0efa7620;
+	Node0x555c0efa7678 -> Node0x555c0efa76c8;
+	Node0x555c0efa7660 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x555c0efa7660 -> Node0x555c0efa7640;
+	Node0x555c0efa7640 [shape=record,label="{DeclRefExpr}"];
+	Node0x555c0efa76b0 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x555c0efa76b0 -> Node0x555c0efa75c8;
+	Node0x555c0efa75c8 [shape=record,label="{UnaryOperator}"];
+	Node0x555c0efa75c8 -> Node0x555c0efa7550;
+	Node0x555c0efa7550 [shape=record,label="{DeclRefExpr}"];
+	Node0x555c0efa7620 [shape=record,label="{UnaryExprOrTypeTraitExpr}"];
+	Node0x555c0efa7620 -> Node0x555c0efa7600;
+	Node0x555c0efa7600 [shape=record,label="{ParenExpr}"];
+	Node0x555c0efa7600 -> Node0x555c0efa75e0;
+	Node0x555c0efa75e0 [shape=record,label="{DeclRefExpr}"];
+	Node0x555c0efa76c8 [shape=record,label="{CXXDefaultArgExpr}"];
+}

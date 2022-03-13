@@ -1,0 +1,28 @@
+digraph unnamed {
+
+	Node0x55c2a505efe8 [shape=record,label="{CompoundStmt}"];
+	Node0x55c2a505efe8 -> Node0x55c2a505ef18;
+	Node0x55c2a505efe8 -> Node0x55c2a505efd8;
+	Node0x55c2a505ef18 [shape=record,label="{DeclStmt}"];
+	Node0x55c2a505ef18 -> Node0x55c2a505eea8;
+	Node0x55c2a505eea8 [shape=record,label="{UnaryOperator}"];
+	Node0x55c2a505eea8 -> Node0x55c2a505ee80;
+	Node0x55c2a505ee80 [shape=record,label="{CStyleCastExpr}"];
+	Node0x55c2a505ee80 -> Node0x55c2a505edf8;
+	Node0x55c2a505edf8 [shape=record,label="{UnaryOperator}"];
+	Node0x55c2a505edf8 -> Node0x55c2a505ed78;
+	Node0x55c2a505ed78 [shape=record,label="{DeclRefExpr}"];
+	Node0x55c2a505efd8 [shape=record,label="{ReturnStmt}"];
+	Node0x55c2a505efd8 -> Node0x55c2a505efc0;
+	Node0x55c2a505efc0 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2a505efc0 -> Node0x55c2a505efa0;
+	Node0x55c2a505efa0 [shape=record,label="{BinaryOperator}"];
+	Node0x55c2a505efa0 -> Node0x55c2a505ef70;
+	Node0x55c2a505efa0 -> Node0x55c2a505ef88;
+	Node0x55c2a505ef70 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2a505ef70 -> Node0x55c2a505ef30;
+	Node0x55c2a505ef30 [shape=record,label="{DeclRefExpr}"];
+	Node0x55c2a505ef88 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x55c2a505ef88 -> Node0x55c2a505ef50;
+	Node0x55c2a505ef50 [shape=record,label="{IntegerLiteral}"];
+}

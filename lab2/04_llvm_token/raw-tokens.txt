@@ -1,0 +1,51 @@
+hash '#'	 [StartOfLine]	Loc=<hello.cpp:1:1>
+raw_identifier 'include'		Loc=<hello.cpp:1:2>
+unknown ' '		Loc=<hello.cpp:1:9>
+less '<'		Loc=<hello.cpp:1:10>
+raw_identifier 'iostream'		Loc=<hello.cpp:1:11>
+greater '>'		Loc=<hello.cpp:1:19>
+unknown '
+
+'		Loc=<hello.cpp:1:20>
+raw_identifier 'using'	 [StartOfLine]	Loc=<hello.cpp:3:1>
+unknown ' '		Loc=<hello.cpp:3:6>
+raw_identifier 'namespace'		Loc=<hello.cpp:3:7>
+unknown ' '		Loc=<hello.cpp:3:16>
+raw_identifier 'std'		Loc=<hello.cpp:3:17>
+semi ';'		Loc=<hello.cpp:3:20>
+unknown '
+
+'		Loc=<hello.cpp:3:21>
+raw_identifier 'int'	 [StartOfLine]	Loc=<hello.cpp:5:1>
+unknown ' '		Loc=<hello.cpp:5:4>
+raw_identifier 'main'		Loc=<hello.cpp:5:5>
+l_paren '('		Loc=<hello.cpp:5:9>
+r_paren ')'		Loc=<hello.cpp:5:10>
+unknown ' '		Loc=<hello.cpp:5:11>
+l_brace '{'		Loc=<hello.cpp:5:12>
+unknown '
+    '		Loc=<hello.cpp:5:13>
+raw_identifier 'cout'	 [StartOfLine]	Loc=<hello.cpp:6:5>
+unknown ' '		Loc=<hello.cpp:6:9>
+lessless '<<'		Loc=<hello.cpp:6:10>
+unknown ' '		Loc=<hello.cpp:6:12>
+string_literal '"Hello World!"'		Loc=<hello.cpp:6:13>
+unknown ' '		Loc=<hello.cpp:6:27>
+lessless '<<'		Loc=<hello.cpp:6:28>
+unknown ' '		Loc=<hello.cpp:6:30>
+raw_identifier 'endl'		Loc=<hello.cpp:6:31>
+semi ';'		Loc=<hello.cpp:6:35>
+unknown '
+    '		Loc=<hello.cpp:6:36>
+raw_identifier 'return'	 [StartOfLine]	Loc=<hello.cpp:7:5>
+unknown ' '		Loc=<hello.cpp:7:11>
+numeric_constant '0'		Loc=<hello.cpp:7:12>
+semi ';'		Loc=<hello.cpp:7:13>
+unknown '
+'		Loc=<hello.cpp:7:14>
+r_brace '}'	 [StartOfLine]	Loc=<hello.cpp:8:1>
+unknown '
+'		Loc=<hello.cpp:8:2>
+/usr/sbin/ld: /usr/lib64/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib64/crt1.o: in function `_start':
+(.text+0x1b): undefined reference to `main'
+clang-13: error: linker command failed with exit code 1 (use -v to see invocation)

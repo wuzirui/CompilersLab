@@ -1,0 +1,14 @@
+digraph unnamed {
+
+	Node0x55c23659ec20 [shape=record,label="{CompoundStmt}"];
+	Node0x55c23659ec20 -> Node0x55c23659ec10;
+	Node0x55c23659ec10 [shape=record,label="{ReturnStmt}"];
+	Node0x55c23659ec10 -> Node0x55c23659ebf8;
+	Node0x55c23659ebf8 [shape=record,label="{ExprWithCleanups}"];
+	Node0x55c23659ebf8 -> Node0x55c23659ebc8;
+	Node0x55c23659ebc8 [shape=record,label="{CXXConstructExpr}"];
+	Node0x55c23659ebc8 -> Node0x55c23659e908;
+	Node0x55c23659e908 [shape=record,label="{MaterializeTemporaryExpr}"];
+	Node0x55c23659e908 -> Node0x55c23659e8d8;
+	Node0x55c23659e8d8 [shape=record,label="{CXXTemporaryObjectExpr}"];
+}

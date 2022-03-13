@@ -1,0 +1,9 @@
+template<> inline constexpr const unsigned long &min<unsigned long>(const unsigned long &__a, const unsigned long &__b) {
+    if (__b < __a)
+        return __b;
+    return __a;
+}
+
+Writing '/tmp/AST-57e7c3.dot'...  done. 
+Trying 'xdg-open' program... Remember to erase graph file: /tmp/AST-57e7c3.dot
+

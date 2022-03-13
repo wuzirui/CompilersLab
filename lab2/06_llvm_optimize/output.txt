@@ -1,0 +1,2287 @@
+*** IR Dump After AlwaysInlinerPass on [module] ***
+; ModuleID = 'hello.cpp'
+source_filename = "hello.cpp"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"class.std::basic_ostream" = type { i32 (...)**, %"class.std::basic_ios" }
+%"class.std::basic_ios" = type { %"class.std::ios_base", %"class.std::basic_ostream"*, i8, i8, %"class.std::basic_streambuf"*, %"class.std::ctype"*, %"class.std::num_put"*, %"class.std::num_get"* }
+%"class.std::ios_base" = type { i32 (...)**, i64, i64, i32, i32, i32, %"struct.std::ios_base::_Callback_list"*, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, %"struct.std::ios_base::_Words"*, %"class.std::locale" }
+%"struct.std::ios_base::_Callback_list" = type { %"struct.std::ios_base::_Callback_list"*, void (i32, %"class.std::ios_base"*, i32)*, i32, i32 }
+%"struct.std::ios_base::_Words" = type { i8*, i64 }
+%"class.std::locale" = type { %"class.std::locale::_Impl"* }
+%"class.std::locale::_Impl" = type { i32, %"class.std::locale::facet"**, i64, %"class.std::locale::facet"**, i8** }
+%"class.std::locale::facet" = type <{ i32 (...)**, i32, [4 x i8] }>
+%"class.std::basic_streambuf" = type { i32 (...)**, i8*, i8*, i8*, i8*, i8*, i8*, %"class.std::locale" }
+%"class.std::ctype" = type <{ %"class.std::locale::facet.base", [4 x i8], %struct.__locale_struct*, i8, [7 x i8], i32*, i32*, i16*, i8, [256 x i8], [256 x i8], i8, [6 x i8] }>
+%"class.std::locale::facet.base" = type <{ i32 (...)**, i32 }>
+%struct.__locale_struct = type { [13 x %struct.__locale_data*], i16*, i32*, i32*, [13 x i8*] }
+%struct.__locale_data = type opaque
+%"class.std::num_put" = type { %"class.std::locale::facet.base", [4 x i8] }
+%"class.std::num_get" = type { %"class.std::locale::facet.base", [4 x i8] }
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@_ZSt4cout = external dso_local global %"class.std::basic_ostream", align 8
+@.str = private unnamed_addr constant [13 x i8] c"Hello World!\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, void ()*, i8* }] [{ i32, void ()*, i8* } { i32 65535, void ()* @_GLOBAL__sub_I_hello.cpp, i8* null }]
+
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+
+declare dso_local void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare dso_local void @_ZNSt8ios_base4InitD1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare dso_local i32 @__cxa_atexit(void (i8*)*, i8*, i8*) #3
+
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i8*) #1
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)*) #1
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8)) #1
+
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+
+attributes #0 = { noinline uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { mustprogress noinline norecurse optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 1}
+!2 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!"clang version 13.0.0 (git@github.com:wuzirui/CompilersLab.git b5020f246904fb69d1a25637a97f6f7b892e3437)"}
+*** IR Dump After CoroEarlyPass on __cxx_global_var_init ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After CoroEarlyPass on main ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After CoroEarlyPass on _GLOBAL__sub_I_hello.cpp ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After CoroSplitPass on (main) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After CoroSplitPass on (__cxx_global_var_init) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After CoroSplitPass on (_GLOBAL__sub_I_hello.cpp) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After CoroCleanupPass on __cxx_global_var_init ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After CoroCleanupPass on main ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After CoroCleanupPass on _GLOBAL__sub_I_hello.cpp ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Pre-ISel Intrinsic Lowering (pre-isel-intrinsic-lowering) ***
+; ModuleID = 'hello.cpp'
+source_filename = "hello.cpp"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"class.std::basic_ostream" = type { i32 (...)**, %"class.std::basic_ios" }
+%"class.std::basic_ios" = type { %"class.std::ios_base", %"class.std::basic_ostream"*, i8, i8, %"class.std::basic_streambuf"*, %"class.std::ctype"*, %"class.std::num_put"*, %"class.std::num_get"* }
+%"class.std::ios_base" = type { i32 (...)**, i64, i64, i32, i32, i32, %"struct.std::ios_base::_Callback_list"*, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, %"struct.std::ios_base::_Words"*, %"class.std::locale" }
+%"struct.std::ios_base::_Callback_list" = type { %"struct.std::ios_base::_Callback_list"*, void (i32, %"class.std::ios_base"*, i32)*, i32, i32 }
+%"struct.std::ios_base::_Words" = type { i8*, i64 }
+%"class.std::locale" = type { %"class.std::locale::_Impl"* }
+%"class.std::locale::_Impl" = type { i32, %"class.std::locale::facet"**, i64, %"class.std::locale::facet"**, i8** }
+%"class.std::locale::facet" = type <{ i32 (...)**, i32, [4 x i8] }>
+%"class.std::basic_streambuf" = type { i32 (...)**, i8*, i8*, i8*, i8*, i8*, i8*, %"class.std::locale" }
+%"class.std::ctype" = type <{ %"class.std::locale::facet.base", [4 x i8], %struct.__locale_struct*, i8, [7 x i8], i32*, i32*, i16*, i8, [256 x i8], [256 x i8], i8, [6 x i8] }>
+%"class.std::locale::facet.base" = type <{ i32 (...)**, i32 }>
+%struct.__locale_struct = type { [13 x %struct.__locale_data*], i16*, i32*, i32*, [13 x i8*] }
+%struct.__locale_data = type opaque
+%"class.std::num_put" = type { %"class.std::locale::facet.base", [4 x i8] }
+%"class.std::num_get" = type { %"class.std::locale::facet.base", [4 x i8] }
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@_ZSt4cout = external dso_local global %"class.std::basic_ostream", align 8
+@.str = private unnamed_addr constant [13 x i8] c"Hello World!\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, void ()*, i8* }] [{ i32, void ()*, i8* } { i32 65535, void ()* @_GLOBAL__sub_I_hello.cpp, i8* null }]
+
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+
+declare dso_local void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare dso_local void @_ZNSt8ios_base4InitD1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare dso_local i32 @__cxa_atexit(void (i8*)*, i8*, i8*) #3
+
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i8*) #1
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)*) #1
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8)) #1
+
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+
+attributes #0 = { noinline uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { mustprogress noinline norecurse optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 1}
+!2 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!"clang version 13.0.0 (git@github.com:wuzirui/CompilersLab.git b5020f246904fb69d1a25637a97f6f7b892e3437)"}
+*** IR Dump After Expand Atomic instructions (atomic-expand) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Lower AMX intrinsics (lower-amx-intrinsics) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Lower AMX type for load/store (lower-amx-type) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Pre AMX Tile Config (pre-amx-config) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Lower Garbage Collection Instructions (gc-lowering) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Shadow Stack GC Lowering (shadow-stack-gc-lowering) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Lower constant intrinsics (lower-constant-intrinsics) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Remove unreachable blocks from the CFG (unreachableblockelim) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Expand vector predication intrinsics (expandvp) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Scalarize Masked Memory Intrinsics (scalarize-masked-mem-intrin) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Expand reduction intrinsics (expand-reductions) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Expand indirectbr instructions (indirectbr-expand) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Exception handling preparation (dwarfehprepare) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Safe Stack instrumentation pass (safe-stack) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: noinline uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+entry:
+  call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %0 = call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init", %"class.std::ios_base::Init"* @_ZStL8__ioinit, i32 0, i32 0), i8* @__dso_handle) #3
+  ret void
+}
+# *** IR Dump After Finalize ISel and expand pseudo-instructions (finalize-isel) ***:
+# Machine code for function __cxx_global_var_init: IsSSA, TracksLiveness
+
+bb.0.entry:
+  %5:gr64 = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %5:gr64
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %0:gr64 = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  %1:gr64 = COPY %0:gr64
+  %2:gr64 = MOV64ri @_ZStL8__ioinit
+  %3:gr64 = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %1:gr64
+  $rsi = COPY %2:gr64
+  $rdx = COPY %3:gr64
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %4:gr32 = COPY $eax
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Local Stack Slot Allocation (localstackalloc) ***:
+# Machine code for function __cxx_global_var_init: IsSSA, TracksLiveness
+
+bb.0.entry:
+  %5:gr64 = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %5:gr64
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %0:gr64 = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  %1:gr64 = COPY %0:gr64
+  %2:gr64 = MOV64ri @_ZStL8__ioinit
+  %3:gr64 = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %1:gr64
+  $rsi = COPY %2:gr64
+  $rdx = COPY %3:gr64
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %4:gr32 = COPY $eax
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After X86 speculative load hardening (x86-slh) ***:
+# Machine code for function __cxx_global_var_init: IsSSA, TracksLiveness
+
+bb.0.entry:
+  %5:gr64 = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %5:gr64
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %0:gr64 = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  %1:gr64 = COPY %0:gr64
+  %2:gr64 = MOV64ri @_ZStL8__ioinit
+  %3:gr64 = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %1:gr64
+  $rsi = COPY %2:gr64
+  $rdx = COPY %3:gr64
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %4:gr32 = COPY $eax
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After X86 EFLAGS copy lowering (x86-flags-copy-lowering) ***:
+# Machine code for function __cxx_global_var_init: IsSSA, TracksLiveness
+
+bb.0.entry:
+  %5:gr64 = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %5:gr64
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %0:gr64 = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  %1:gr64 = COPY %0:gr64
+  %2:gr64 = MOV64ri @_ZStL8__ioinit
+  %3:gr64 = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %1:gr64
+  $rsi = COPY %2:gr64
+  $rdx = COPY %3:gr64
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %4:gr32 = COPY $eax
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Eliminate PHI nodes for register allocation (phi-node-elimination) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness
+
+bb.0.entry:
+  %5:gr64 = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %5:gr64
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %0:gr64 = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  %1:gr64 = COPY %0:gr64
+  %2:gr64 = MOV64ri @_ZStL8__ioinit
+  %3:gr64 = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %1:gr64
+  $rsi = COPY %2:gr64
+  $rdx = COPY %3:gr64
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %4:gr32 = COPY $eax
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Two-Address instruction pass (twoaddressinstruction) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, TiedOpsRewritten
+
+bb.0.entry:
+  %5:gr64 = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %5:gr64
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %0:gr64 = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  %1:gr64 = COPY %0:gr64
+  %2:gr64 = MOV64ri @_ZStL8__ioinit
+  %3:gr64 = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %1:gr64
+  $rsi = COPY %2:gr64
+  $rdx = COPY %3:gr64
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %4:gr32 = COPY $eax
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Fast Register Allocator (regallocfast) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Fast Tile Register Configure (fasttileconfig) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After X86 Lower Tile Copy (lowertilecopy) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After X86 FP Stackifier (x86-codegen) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Remove Redundant DEBUG_VALUE analysis (removeredundantdebugvalues) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Fixup Statepoint Caller Saved (fixup-statepoint-caller-saved) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Prologue/Epilogue Insertion & Frame Finalization (prologepilog) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Post-RA pseudo instruction expansion pass (postrapseudos) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After X86 pseudo instruction expansion pass (x86-pseudo) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Analyze Machine Code For Garbage Collection (gc-analysis) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Insert fentry calls (fentry-insert) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Insert XRay ops (xray-instrumentation) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Implement the 'patchable-function' attribute (patchable-function) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Compressing EVEX instrs to VEX encoding when possible (x86-evex-to-vex-compress) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Contiguously Lay Out Funclets (funclet-layout) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After StackMap Liveness Analysis (stackmap-liveness) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Live DEBUG_VALUE analysis (livedebugvalues) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After X86 Speculative Execution Side Effect Suppression (x86-seses) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After Check CFA info and insert CFI instructions if needed (cfi-instr-inserter) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+# *** IR Dump After X86 Load Value Injection (LVI) Ret-Hardening (x86-lvi-ret) ***:
+# Machine code for function __cxx_global_var_init: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  renamable $rdi = MOV64ri @_ZStL8__ioinit
+  CALL64pcrel32 @_ZNSt8ios_base4InitC1Ev, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi
+  renamable $rdi = MOV64ri @_ZNSt8ios_base4InitD1Ev
+  renamable $rsi = MOV64ri @_ZStL8__ioinit
+  renamable $rdx = MOV64ri @__dso_handle
+  CALL64pcrel32 @__cxa_atexit, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit killed $rdx, implicit-def $eax
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function __cxx_global_var_init.
+
+*** IR Dump After Expand Atomic instructions (atomic-expand) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Lower AMX intrinsics (lower-amx-intrinsics) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Lower AMX type for load/store (lower-amx-type) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Pre AMX Tile Config (pre-amx-config) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Lower Garbage Collection Instructions (gc-lowering) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Shadow Stack GC Lowering (shadow-stack-gc-lowering) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Lower constant intrinsics (lower-constant-intrinsics) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Remove unreachable blocks from the CFG (unreachableblockelim) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Expand vector predication intrinsics (expandvp) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Scalarize Masked Memory Intrinsics (scalarize-masked-mem-intrin) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Expand reduction intrinsics (expand-reductions) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Expand indirectbr instructions (indirectbr-expand) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Exception handling preparation (dwarfehprepare) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Safe Stack instrumentation pass (safe-stack) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: mustprogress noinline norecurse optnone uwtable
+define dso_local i32 @main() #4 {
+entry:
+  %retval = alloca i32, align 4
+  store i32 0, i32* %retval, align 4
+  %call = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([13 x i8], [13 x i8]* @.str, i64 0, i64 0))
+  %call1 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %call, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 0
+}
+# *** IR Dump After Finalize ISel and expand pseudo-instructions (finalize-isel) ***:
+# Machine code for function main: IsSSA, TracksLiveness
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  %4:gr64 = MOV64ri @_ZSt4cout
+  %5:gr64 = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %4:gr64
+  $rsi = COPY %5:gr64
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %6:gr64 = COPY $rax
+  %2:gr64 = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %6:gr64
+  $rsi = COPY %2:gr64
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %3:gr64 = COPY $rax
+  %0:gr32 = MOV32r0 implicit-def $eflags
+  $eax = COPY %0:gr32
+  RETQ implicit $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Local Stack Slot Allocation (localstackalloc) ***:
+# Machine code for function main: IsSSA, TracksLiveness
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  %4:gr64 = MOV64ri @_ZSt4cout
+  %5:gr64 = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %4:gr64
+  $rsi = COPY %5:gr64
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %6:gr64 = COPY $rax
+  %2:gr64 = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %6:gr64
+  $rsi = COPY %2:gr64
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %3:gr64 = COPY $rax
+  %0:gr32 = MOV32r0 implicit-def $eflags
+  $eax = COPY %0:gr32
+  RETQ implicit $eax
+
+# End machine code for function main.
+
+# *** IR Dump After X86 speculative load hardening (x86-slh) ***:
+# Machine code for function main: IsSSA, TracksLiveness
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  %4:gr64 = MOV64ri @_ZSt4cout
+  %5:gr64 = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %4:gr64
+  $rsi = COPY %5:gr64
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %6:gr64 = COPY $rax
+  %2:gr64 = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %6:gr64
+  $rsi = COPY %2:gr64
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %3:gr64 = COPY $rax
+  %0:gr32 = MOV32r0 implicit-def $eflags
+  $eax = COPY %0:gr32
+  RETQ implicit $eax
+
+# End machine code for function main.
+
+# *** IR Dump After X86 EFLAGS copy lowering (x86-flags-copy-lowering) ***:
+# Machine code for function main: IsSSA, TracksLiveness
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  %4:gr64 = MOV64ri @_ZSt4cout
+  %5:gr64 = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %4:gr64
+  $rsi = COPY %5:gr64
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %6:gr64 = COPY $rax
+  %2:gr64 = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %6:gr64
+  $rsi = COPY %2:gr64
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %3:gr64 = COPY $rax
+  %0:gr32 = MOV32r0 implicit-def $eflags
+  $eax = COPY %0:gr32
+  RETQ implicit $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Eliminate PHI nodes for register allocation (phi-node-elimination) ***:
+# Machine code for function main: NoPHIs, TracksLiveness
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  %4:gr64 = MOV64ri @_ZSt4cout
+  %5:gr64 = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %4:gr64
+  $rsi = COPY %5:gr64
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %6:gr64 = COPY $rax
+  %2:gr64 = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %6:gr64
+  $rsi = COPY %2:gr64
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %3:gr64 = COPY $rax
+  %0:gr32 = MOV32r0 implicit-def $eflags
+  $eax = COPY %0:gr32
+  RETQ implicit $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Two-Address instruction pass (twoaddressinstruction) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, TiedOpsRewritten
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  %4:gr64 = MOV64ri @_ZSt4cout
+  %5:gr64 = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %4:gr64
+  $rsi = COPY %5:gr64
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %6:gr64 = COPY $rax
+  %2:gr64 = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  $rdi = COPY %6:gr64
+  $rsi = COPY %2:gr64
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  %3:gr64 = COPY $rax
+  %0:gr32 = MOV32r0 implicit-def $eflags
+  $eax = COPY %0:gr32
+  RETQ implicit $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Fast Register Allocator (regallocfast) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = COPY killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $eax = MOV32r0 implicit-def dead $eflags
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Fast Tile Register Configure (fasttileconfig) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = COPY killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $eax = MOV32r0 implicit-def dead $eflags
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After X86 Lower Tile Copy (lowertilecopy) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = COPY killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $eax = MOV32r0 implicit-def dead $eflags
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After X86 FP Stackifier (x86-codegen) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = COPY killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $eax = MOV32r0 implicit-def dead $eflags
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Remove Redundant DEBUG_VALUE analysis (removeredundantdebugvalues) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = COPY killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $eax = MOV32r0 implicit-def dead $eflags
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Fixup Statepoint Caller Saved (fixup-statepoint-caller-saved) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#0: size=4, align=4, at location [SP+8]
+
+bb.0.entry:
+  MOV32mi %stack.0.retval, 1, $noreg, 0, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $rdi = COPY killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  renamable $eax = MOV32r0 implicit-def dead $eflags
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Prologue/Epilogue Insertion & Frame Finalization (prologepilog) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $rdi = COPY killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = MOV32r0 implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Post-RA pseudo instruction expansion pass (postrapseudos) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After X86 pseudo instruction expansion pass (x86-pseudo) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Analyze Machine Code For Garbage Collection (gc-analysis) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Insert fentry calls (fentry-insert) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Insert XRay ops (xray-instrumentation) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Implement the 'patchable-function' attribute (patchable-function) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Compressing EVEX instrs to VEX encoding when possible (x86-evex-to-vex-compress) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Contiguously Lay Out Funclets (funclet-layout) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After StackMap Liveness Analysis (stackmap-liveness) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Live DEBUG_VALUE analysis (livedebugvalues) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After X86 Speculative Execution Side Effect Suppression (x86-seses) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After Check CFA info and insert CFI instructions if needed (cfi-instr-inserter) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+# *** IR Dump After X86 Load Value Injection (LVI) Ret-Hardening (x86-lvi-ret) ***:
+# Machine code for function main: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+  fi#0: size=4, align=4, at location [SP-12]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  $rsp = frame-setup SUB64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  MOV32mi $rbp, 1, $noreg, -4, $noreg, 0 :: (store (s32) into %ir.retval)
+  renamable $rdi = MOV64ri @_ZSt4cout
+  renamable $rsi = MOV64ri @.str
+  CALL64pcrel32 @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  $rdi = MOV64rr killed $rax
+  renamable $rsi = MOV64ri @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+  CALL64pcrel32 @_ZNSolsEPFRSoS_E, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp, implicit killed $rdi, implicit killed $rsi, implicit-def $rax
+  renamable $eax = XOR32rr undef $eax(tied-def 0), undef $eax, implicit-def dead $eflags
+  $rsp = frame-destroy ADD64ri8 $rsp(tied-def 0), 16, implicit-def dead $eflags
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ implicit killed $eax
+
+# End machine code for function main.
+
+*** IR Dump After Expand Atomic instructions (atomic-expand) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Lower AMX intrinsics (lower-amx-intrinsics) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Lower AMX type for load/store (lower-amx-type) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Pre AMX Tile Config (pre-amx-config) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Lower Garbage Collection Instructions (gc-lowering) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Shadow Stack GC Lowering (shadow-stack-gc-lowering) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Lower constant intrinsics (lower-constant-intrinsics) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Remove unreachable blocks from the CFG (unreachableblockelim) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Expand vector predication intrinsics (expandvp) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Scalarize Masked Memory Intrinsics (scalarize-masked-mem-intrin) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Expand reduction intrinsics (expand-reductions) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Expand indirectbr instructions (indirectbr-expand) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Exception handling preparation (dwarfehprepare) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Safe Stack instrumentation pass (safe-stack) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+*** IR Dump After Module Verifier (verify) ***
+; Function Attrs: noinline uwtable
+define internal void @_GLOBAL__sub_I_hello.cpp() #0 section ".text.startup" {
+entry:
+  call void @__cxx_global_var_init()
+  ret void
+}
+# *** IR Dump After Finalize ISel and expand pseudo-instructions (finalize-isel) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: IsSSA, TracksLiveness
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Local Stack Slot Allocation (localstackalloc) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: IsSSA, TracksLiveness
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After X86 speculative load hardening (x86-slh) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: IsSSA, TracksLiveness
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After X86 EFLAGS copy lowering (x86-flags-copy-lowering) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: IsSSA, TracksLiveness
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Eliminate PHI nodes for register allocation (phi-node-elimination) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Two-Address instruction pass (twoaddressinstruction) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, TiedOpsRewritten
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Fast Register Allocator (regallocfast) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Fast Tile Register Configure (fasttileconfig) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After X86 Lower Tile Copy (lowertilecopy) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After X86 FP Stackifier (x86-codegen) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Remove Redundant DEBUG_VALUE analysis (removeredundantdebugvalues) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Fixup Statepoint Caller Saved (fixup-statepoint-caller-saved) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+
+bb.0.entry:
+  ADJCALLSTACKDOWN64 0, 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  ADJCALLSTACKUP64 0, 0, implicit-def $rsp, implicit-def dead $eflags, implicit-def $ssp, implicit $rsp, implicit $ssp
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Prologue/Epilogue Insertion & Frame Finalization (prologepilog) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Post-RA pseudo instruction expansion pass (postrapseudos) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After X86 pseudo instruction expansion pass (x86-pseudo) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Analyze Machine Code For Garbage Collection (gc-analysis) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Insert fentry calls (fentry-insert) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Insert XRay ops (xray-instrumentation) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Implement the 'patchable-function' attribute (patchable-function) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Compressing EVEX instrs to VEX encoding when possible (x86-evex-to-vex-compress) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Contiguously Lay Out Funclets (funclet-layout) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After StackMap Liveness Analysis (stackmap-liveness) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Live DEBUG_VALUE analysis (livedebugvalues) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After X86 Speculative Execution Side Effect Suppression (x86-seses) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After Check CFA info and insert CFI instructions if needed (cfi-instr-inserter) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+
+# *** IR Dump After X86 Load Value Injection (LVI) Ret-Hardening (x86-lvi-ret) ***:
+# Machine code for function _GLOBAL__sub_I_hello.cpp: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten
+Frame Objects:
+  fi#-1: size=8, align=16, fixed, at location [SP-8]
+
+bb.0.entry:
+  frame-setup PUSH64r killed $rbp, implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa_offset 16
+  CFI_INSTRUCTION offset $rbp, -16
+  $rbp = frame-setup MOV64rr $rsp
+  CFI_INSTRUCTION def_cfa_register $rbp
+  CALL64pcrel32 @__cxx_global_var_init, <regmask $bh $bl $bp $bph $bpl $bx $ebp $ebx $hbp $hbx $rbp $rbx $r12 $r13 $r14 $r15 $r12b $r13b $r14b $r15b $r12bh $r13bh $r14bh $r15bh $r12d $r13d $r14d $r15d $r12w $r13w $r14w $r15w $r12wh and 3 more...>, implicit $rsp, implicit $ssp
+  $rbp = frame-destroy POP64r implicit-def $rsp, implicit $rsp
+  CFI_INSTRUCTION def_cfa $rsp, 8
+  RETQ
+
+# End machine code for function _GLOBAL__sub_I_hello.cpp.
+

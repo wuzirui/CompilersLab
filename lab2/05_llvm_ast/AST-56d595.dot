@@ -1,0 +1,36 @@
+digraph unnamed {
+
+	Node0x5573ff486a78 [shape=record,label="{CompoundStmt}"];
+	Node0x5573ff486a78 -> Node0x5573ff486a68;
+	Node0x5573ff486a68 [shape=record,label="{ReturnStmt}"];
+	Node0x5573ff486a68 -> Node0x5573ff486a50;
+	Node0x5573ff486a50 [shape=record,label="{ExprWithCleanups}"];
+	Node0x5573ff486a50 -> Node0x5573ff4869a0;
+	Node0x5573ff4869a0 [shape=record,label="{CallExpr}"];
+	Node0x5573ff4869a0 -> Node0x5573ff486988;
+	Node0x5573ff4869a0 -> Node0x5573ff4869d8;
+	Node0x5573ff4869a0 -> Node0x5573ff4869f0;
+	Node0x5573ff4869a0 -> Node0x5573ff486a20;
+	Node0x5573ff486988 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x5573ff486988 -> Node0x5573ff486838;
+	Node0x5573ff486838 [shape=record,label="{DeclRefExpr}"];
+	Node0x5573ff4869d8 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x5573ff4869d8 -> Node0x5573ff483330;
+	Node0x5573ff483330 [shape=record,label="{DeclRefExpr}"];
+	Node0x5573ff4869f0 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x5573ff4869f0 -> Node0x5573ff483350;
+	Node0x5573ff483350 [shape=record,label="{DeclRefExpr}"];
+	Node0x5573ff486a20 [shape=record,label="{CXXConstructExpr}"];
+	Node0x5573ff486a20 -> Node0x5573ff486a08;
+	Node0x5573ff486a08 [shape=record,label="{MaterializeTemporaryExpr}"];
+	Node0x5573ff486a08 -> Node0x5573ff485ea0;
+	Node0x5573ff485ea0 [shape=record,label="{CallExpr}"];
+	Node0x5573ff485ea0 -> Node0x5573ff485e88;
+	Node0x5573ff485ea0 -> Node0x5573ff485ec8;
+	Node0x5573ff485e88 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x5573ff485e88 -> Node0x5573ff483758;
+	Node0x5573ff483758 [shape=record,label="{DeclRefExpr}"];
+	Node0x5573ff485ec8 [shape=record,label="{ImplicitCastExpr}"];
+	Node0x5573ff485ec8 -> Node0x5573ff4833b8;
+	Node0x5573ff4833b8 [shape=record,label="{DeclRefExpr}"];
+}

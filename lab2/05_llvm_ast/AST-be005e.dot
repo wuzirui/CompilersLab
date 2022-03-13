@@ -1,0 +1,10 @@
+digraph unnamed {
+
+	Node0x55e7aac33f10 [shape=record,label="{CompoundStmt}"];
+	Node0x55e7aac33f10 -> Node0x55e7aac33f00;
+	Node0x55e7aac33f00 [shape=record,label="{ReturnStmt}"];
+	Node0x55e7aac33f00 -> Node0x55e7aac33ed0;
+	Node0x55e7aac33ed0 [shape=record,label="{CXXStaticCastExpr}"];
+	Node0x55e7aac33ed0 -> Node0x55e7aac33eb0;
+	Node0x55e7aac33eb0 [shape=record,label="{DeclRefExpr}"];
+}

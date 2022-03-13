@@ -1,0 +1,60 @@
+
+;; Function main (main, funcdef_no=1729, decl_uid=44175, cgraph_uid=492, symbol_order=523)
+
+int main ()
+{
+  struct basic_ostream & D.49066;
+  int D.49064;
+
+  <bb 2> :
+  D.49066 = std::operator<< <std::char_traits<char> > (&cout, "Hello World!");
+  _1 = D.49066;
+  std::basic_ostream<char>::operator<< (_1, endl);
+  D.49064 = 0;
+
+  <bb 3> :
+<L0>:
+  return D.49064;
+
+}
+
+
+
+;; Function __static_initialization_and_destruction_0 (_Z41__static_initialization_and_destruction_0ii, funcdef_no=2232, decl_uid=49056, cgraph_uid=995, symbol_order=1053)
+
+void __static_initialization_and_destruction_0 (int __initialize_p, int __priority)
+{
+  <bb 2> :
+  if (__initialize_p == 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 3> :
+  if (__priority == 65535)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  std::ios_base::Init::Init (&__ioinit);
+  __cxxabiv1::__cxa_atexit (__dt_comp , &__ioinit, &__dso_handle);
+
+  <bb 5> :
+  return;
+
+}
+
+
+
+;; Function _GLOBAL__sub_I_main (_GLOBAL__sub_I_main, funcdef_no=2233, decl_uid=49062, cgraph_uid=996, symbol_order=1172)
+
+void _GLOBAL__sub_I_main ()
+{
+  <bb 2> :
+  __static_initialization_and_destruction_0 (1, 65535);
+  return;
+
+}
+
+
